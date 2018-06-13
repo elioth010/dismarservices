@@ -1,0 +1,25 @@
+
+{
+    "dismarservicesApp": {
+        "orderRequestRecord" : {
+            "home": {
+                "title": "Order Request Records",
+                "createLabel": "Create a new Order Request Record",
+                "createOrEditLabel": "Create or edit a Order Request Record"
+            },
+            "created": "A new Order Request Record is created with identifier {{ param }}",
+            "updated": "A Order Request Record is updated with identifier {{ param }}",
+            "deleted": "A Order Request Record is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Order Request Record {{ id }}?"
+            },
+            "detail": {
+                "title": "Order Request Record"
+            },
+            "quantity": "Quantity",
+            "subTotal": "Sub Total",
+            "order": "Order",
+            "product": "Product"
+        }
+    }
+}

@@ -22,12 +22,12 @@ entity State {
 	name String required 
 }
 
-entity Order {
+entity OrderRequest {
 	date LocalDate required,
     total BigDecimal
 }
 
-entity OrderDetail {
+entity OrderRequestRecord {
 	quantity Integer required,
     subTotal BigDecimal required
 }
@@ -70,11 +70,11 @@ relationship ManyToOne {
 	Product{group} to ProductGroup
     ProductImage{product} to Product
     Product{category} to Category
-    OrderDetail{order} to Order
-    OrderDetail {product} to Product 
+    OrderRequestRecord{order} to OrderRequest
+    OrderRequestRecord{product} to Product 
     Product{brand} to Brand
     Profile{state} to State
-    Order{user} to User
+    OrderRequest{user} to User
 }
  
 // Set pagination options

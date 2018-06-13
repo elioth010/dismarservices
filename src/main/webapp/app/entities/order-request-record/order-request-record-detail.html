@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="dismarservicesApp.orderRequestRecord.detail.title">Order Request Record</span> {{vm.orderRequestRecord.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="dismarservicesApp.orderRequestRecord.quantity">Quantity</span></dt>
+        <dd>
+            <span>{{vm.orderRequestRecord.quantity}}</span>
+        </dd>
+        <dt><span data-translate="dismarservicesApp.orderRequestRecord.subTotal">Sub Total</span></dt>
+        <dd>
+            <span>{{vm.orderRequestRecord.subTotal}}</span>
+        </dd>
+        <dt><span data-translate="dismarservicesApp.orderRequestRecord.order">Order</span></dt>
+        <dd>
+            <a ui-sref="order-request-detail({id:vm.orderRequestRecord.orderId})">{{vm.orderRequestRecord.orderId}}</a>
+        </dd>
+        <dt><span data-translate="dismarservicesApp.orderRequestRecord.product">Product</span></dt>
+        <dd>
+            <a ui-sref="product-detail({id:vm.orderRequestRecord.productId})">{{vm.orderRequestRecord.productId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="order-request-record-detail.edit({id:vm.orderRequestRecord.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

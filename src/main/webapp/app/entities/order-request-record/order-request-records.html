@@ -1,0 +1,66 @@
+<div>
+    <h2 data-translate="dismarservicesApp.orderRequestRecord.home.title">Order Request Records</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="order-request-record.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="dismarservicesApp.orderRequestRecord.home.createLabel">
+                        Create new Order Request Record
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="dismarservicesApp.orderRequestRecord.quantity">Quantity</span></th>
+                    <th><span data-translate="dismarservicesApp.orderRequestRecord.subTotal">Sub Total</span></th>
+                    <th><span data-translate="dismarservicesApp.orderRequestRecord.order">Order</span></th>
+                    <th><span data-translate="dismarservicesApp.orderRequestRecord.product">Product</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="orderRequestRecord in vm.orderRequestRecords track by orderRequestRecord.id">
+                    <td><a ui-sref="order-request-record-detail({id:orderRequestRecord.id})">{{orderRequestRecord.id}}</a></td>
+                    <td>{{orderRequestRecord.quantity}}</td>
+                    <td>{{orderRequestRecord.subTotal}}</td>
+                    <td>
+                        <a ui-sref="order-request-detail({id:orderRequestRecord.orderId})">{{orderRequestRecord.orderId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="product-detail({id:orderRequestRecord.productId})">{{orderRequestRecord.productId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="order-request-record-detail({id:orderRequestRecord.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="order-request-record.edit({id:orderRequestRecord.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="order-request-record.delete({id:orderRequestRecord.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
