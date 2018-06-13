@@ -1,0 +1,85 @@
+
+
+entity User {
+	username String required,
+    password String required,
+    email String required,
+    facebookToken String
+    googleToken String
+}
+
+entity Profile {
+	firstName String required,
+    lastName String required,
+    addressLine1 String required,
+    addressLine2 String,
+    phoneNumber String required,
+    town String,
+    birthDay LocalDate
+}
+
+entity State {
+	name String required 
+}
+
+entity Order {
+	date LocalDate required,
+    total BigDecimal
+}
+
+entity OrderDetail {
+	quantity Integer required,
+    subTotal BigDecimal required
+}
+
+entity ProductGroup {
+    sapGroup String required,
+	name String required
+}
+
+entity Category {
+    sapCategory String required,
+	name String required
+}
+
+entity Brand {
+    sapBrand String required,
+	name String required
+}
+
+entity ProductImage {
+	photo ImageBlob required,
+    active Boolean
+}
+
+entity Product {
+    sapProduct String required, 
+	name String required,
+    description String required,
+    weight BigDecimal required,
+    listPrice BigDecimal required,
+    salePrice BigDecimal required,
+    active Boolean
+}
+
+relationship OneToOne {
+	Profile{user} to User
+}
+
+relationship ManyToOne {
+	Product{group} to ProductGroup
+    ProductImage{product} to Product
+    Product{category} to Category
+    OrderDetail{order} to Order
+    OrderDetail {product} to Product 
+    Product{brand} to Brand
+    Profile{state} to State
+    Order{user} to User
+}
+ 
+// Set pagination options
+paginate Product with infinite-scroll
+service all with serviceImpl
+dto * with mapstruct
+// Set service options to all except few
+service all with serviceImpl
